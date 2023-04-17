@@ -37,8 +37,8 @@ body {
   flex-direction: column;
 }
 
-.username-input,
-.password-input {
+#uname,
+#pwd {
   background: 	#D3D3D3;
   box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.25),
     inset 5px 5px 10px rgba(0, 0, 0, 0.25);
@@ -52,14 +52,14 @@ body {
   color: white;
 }
 
-.username-input::placeholder,
-.password-input::placeholder {
+#uname::placeholder,
+#pwd::placeholder {
   color: white;
   font-weight: bold;
 }
 
-.username-input:focus,
-.password-input:focus {
+#uname:focus,
+#pwd:focus {
   border: 2px solid rgba(255, 255, 255, 0.327);
 }
 
@@ -150,8 +150,8 @@ button::before {
   .line {
     width: 7em;
   }
-  .username-input,
-  .password-input,
+  .uname,
+  .pwd,
   .login-button,
   .google-login-button {
     font-size: var(--mobile-normal-font);

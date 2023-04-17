@@ -99,6 +99,11 @@ app.post('/students', upload.fields([
       //     const students = await Student.find();
       //     res.render('students', { students });
       //   });
+
+app.get('/' , async(req ,res) =>{
+        res.render('home');
+});
+    
       
 app.get('/create-student' , async(req ,res) =>{
         res.render('create-student');
@@ -108,7 +113,7 @@ app.get('/create-student' , async(req ,res) =>{
 app.get('/students', async (req, res) => {
     try {
       const students = await Student.find();
-      res.render('show-students', { students });
+      res.render('admin', { students });
     //   res.status(200).json({ success: true, data: students });
     } catch (error) {
       console.error(error);
@@ -168,6 +173,26 @@ app.delete('/students/:id', async (req, res) => {
     res.send(student);
   } catch (err) {
     res.status(400).send(err);
+  }
+});
+
+//Render
+app.get('/login', (req, res) => {
+  res.render('login', { message: null });
+});
+
+// Route to handle login form submission
+app.post('/login', (req, res) => {
+  const { uname, pwd } = req.body;
+
+  // Check if the username and password are correct
+  console.log(uname + " " + pwd);
+  let myres = uname+" "+pwd;
+  if (uname === 'admin' && pwd === 'admin@1234') {
+    // res.redirect('/students');
+    res.send(myres);
+  } else {
+    res.render('login', { message: 'Invalid username or password.' });
   }
 });
 
